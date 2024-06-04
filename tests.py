@@ -33,14 +33,17 @@ class TestBooksCollector:
         collector.set_book_genre(book_name, genre)
         assert collector.get_book_genre(book_name) == genre
 
-    @pytest.mark.parametrize('book_name, genre', book_list)
-    def test_set_book_genre_specific_book_two_books(self, book_name, genre):
+    def test_set_book_genre_specific_book_two_books(self):
         collector = BooksCollector()
-        collector.add_new_book(book_name)
-        collector.set_book_genre(book_name, genre)
-        collector.get_books_with_specific_genre(genre)
-        assert book_name in collector.get_books_with_specific_genre(genre)
-        assert collector.get_books_with_specific_genre(genre) == [book_name]
+        collector.add_new_book('Book1')
+        collector.add_new_book('Book2')
+        collector.add_new_book('Book3')
+        collector.add_new_book('Book4')
+        collector.set_book_genre('Book1', 'Комедии')
+        collector.set_book_genre('Book2', 'Комедии')
+        collector.set_book_genre('Book3', 'Комедии')
+        collector.set_book_genre('Book4', 'Фантастика')
+        assert collector.get_books_with_specific_genre('Комедии') == ['Book1', 'Book2', 'Book3']
 
     @pytest.mark.parametrize('book_name, genre', book_list)
     def test_get_books_genre_two_books(self, book_name, genre):
