@@ -33,7 +33,7 @@ class TestBooksCollector:
         collector.set_book_genre(book_name, genre)
         assert collector.get_book_genre(book_name) == genre
 
-    def test_set_book_genre_specific_book_two_books(self):
+    def test_set_book_genre_specific_book_three_books(self):
         collector = BooksCollector()
         collector.add_new_book('Book1')
         collector.add_new_book('Book2')
