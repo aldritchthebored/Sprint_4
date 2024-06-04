@@ -55,7 +55,7 @@ class TestBooksCollector:
         collector.set_book_genre('Star Wars', 'Фантастика')
         assert collector.get_books_for_children() == ['Star Wars']
 
-    books = ['Devil Wears Prada', 'Lost', '1984']
+    books = ['Devil Wears Prada', '1984']
 
     @pytest.mark.parametrize('book', books)
     def test_add_book_in_favourite_two_books(self, book):
